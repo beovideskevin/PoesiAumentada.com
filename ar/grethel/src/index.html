@@ -1,0 +1,225 @@
+<!doctype html>
+<html>
+    <head>
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0, user-scalable=no"
+        />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+
+        <link rel="icon" type="image/png" href="/assets/images/favicon.png" />
+        <title>Poesia Aumentada | Poemas de Grethel Delgado</title>
+        <script
+            crossorigin="anonymous"
+            src="./external/scripts/8frame-1.5.0.min.js"
+        ></script>
+
+        <script
+            src="https://cdn.jsdelivr.net/npm/@8thwall/engine-binary@1/dist/xr.js"
+            async
+            crossorigin="anonymous"
+            data-preload-chunks="slam"
+        ></script>
+        <script
+            src="https://cdn.jsdelivr.net/npm/@8thwall/landing-page@1/dist/landing-page.js"
+            crossorigin="anonymous"
+        ></script>
+        <script
+            src="https://cdn.jsdelivr.net/npm/@8thwall/xrextras@1/dist/xrextras.js"
+            crossorigin="anonymous"
+        ></script>
+    </head>
+    <body>
+        <script src="bundle.js"></script>
+        <a-scene
+            xrextras-gesture-detector
+            landing-page
+            xrextras-loading
+            xrextras-runtime-error
+            renderer="colorManagement:true"
+            xrweb="disableWorldTracking: true"
+        >
+            <a-assets>
+                <img
+                    id="balconing-thumb"
+                    src="assets/images/thumbs/balconing.png"
+                />
+                <video
+                    id="balconing-video"
+                    crossorigin="anonymous"
+                    loop="true"
+                    src="assets/videos/balconing_sm.mp4"
+                ></video>
+
+                <img
+                    id="el_puto_amo-thumb"
+                    src="assets/images/thumbs/el_puto_amo.png"
+                />
+                <video
+                    id="el_puto_amo-video"
+                    crossorigin="anonymous"
+                    loop="true"
+                    src="assets/videos/el_puto_amo_sm.mp4"
+                ></video>
+
+                <img
+                    id="interferencia-thumb"
+                    src="assets/images/thumbs/interferencia.png"
+                />
+                <video
+                    id="interferencia-video"
+                    crossorigin="anonymous"
+                    loop="true"
+                    src="assets/videos/interferencia_sm.mp4"
+                ></video>
+
+                <img
+                    id="la_jaula-thumb"
+                    src="assets/images/thumbs/la_jaula.png"
+                />
+                <video
+                    id="la_jaula-video"
+                    crossorigin="anonymous"
+                    loop="true"
+                    src="assets/videos/la_jaula_sm.mp4"
+                ></video>
+
+                <img
+                    id="mar_a_la_vista-thumb"
+                    src="assets/images/thumbs/mar_a_la_vista.png"
+                />
+                <video
+                    id="mar_a_la_vista-video"
+                    crossorigin="anonymous"
+                    loop="true"
+                    src="assets/videos/mar_a_la_vista_sm.mp4"
+                ></video>
+
+                <img
+                    id="maria_gracia-thumb"
+                    src="assets/images/thumbs/maria_gracia.png"
+                />
+                <video
+                    id="maria_gracia-video"
+                    crossorigin="anonymous"
+                    loop="true"
+                    src="assets/videos/maria_gracia_sm.mp4"
+                ></video>
+            </a-assets>
+
+            <a-camera
+                position="0 4 10"
+                raycaster="objects: .cantap"
+                cursor="fuse: false; rayOrigin: mouse;"
+            >
+            </a-camera>
+
+            <a-light
+                type="directional"
+                intensity="0.5"
+                position="1 1 1"
+            ></a-light>
+
+            <a-light type="ambient" intensity="1"></a-light>
+
+            <!-- Note: "name:" must be set to the name of the image target -->
+            <xrextras-named-image-target name="balconing">
+                <xrextras-target-video-sound
+                    video="#balconing-video"
+                    thumb="#balconing-thumb"
+                    height="1.34"
+                    width="1"
+                ></xrextras-target-video-sound>
+            </xrextras-named-image-target>
+
+            <xrextras-named-image-target name="el_puto_amo">
+                <xrextras-target-video-sound
+                    video="#el_puto_amo-video"
+                    thumb="#el_puto_amo-thumb"
+                    height="1.34"
+                    width="1"
+                ></xrextras-target-video-sound>
+            </xrextras-named-image-target>
+
+            <xrextras-named-image-target name="interferencia">
+                <xrextras-target-video-sound
+                    video="#interferencia-video"
+                    thumb="#interferencia-thumb"
+                    height="1.34"
+                    width="1"
+                ></xrextras-target-video-sound>
+            </xrextras-named-image-target>
+
+            <xrextras-named-image-target name="la_jaula">
+                <xrextras-target-video-sound
+                    video="#la_jaula-video"
+                    thumb="#la_jaula-thumb"
+                    height="1.34"
+                    width="1"
+                ></xrextras-target-video-sound>
+            </xrextras-named-image-target>
+
+            <xrextras-named-image-target name="mar_a_la_vista">
+                <xrextras-target-video-sound
+                    video="#mar_a_la_vista-video"
+                    thumb="#mar_a_la_vista-thumb"
+                    height="1.34"
+                    width="1"
+                ></xrextras-target-video-sound>
+            </xrextras-named-image-target>
+
+            <xrextras-named-image-target name="maria_gracia">
+                <xrextras-target-video-sound
+                    video="#maria_gracia-video"
+                    thumb="#maria_gracia-thumb"
+                    height="1.34"
+                    width="1"
+                ></xrextras-target-video-sound>
+            </xrextras-named-image-target>
+        </a-scene>
+
+        <script>
+            const targetVideoSoundComponent = {
+                schema: {
+                    video,
+                    thumb,
+                    height,
+                    width,
+                },
+                init() {
+                    const v = document.querySelector(this.data.video);
+                    let tapped = false;
+
+                    this.el.addEventListener('click', () => {
+                        if (!tapped) {
+                            this.el.setAttribute('material', 'src', v);
+                            v.play();
+                            tapped = true;
+                        }
+                    });
+
+                    const foundTarget = () => {
+                        if (tapped) {
+                            v.play();
+                        }
+                    };
+
+                    const lostTarget = () => {
+                        if (tapped) {
+                            v.pause();
+                        }
+                    };
+
+                    this.el.parentNode.addEventListener(
+                        'xrextrasfound',
+                        foundTarget,
+                    );
+                    this.el.parentNode.addEventListener(
+                        'xrextraslost',
+                        lostTarget,
+                    );
+                },
+            };
+        </script>
+    </body>
+</html>

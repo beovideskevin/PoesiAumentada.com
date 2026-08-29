@@ -1,0 +1,23 @@
+{
+  "imagePath": "image-targets/mar_a_la_vista_luminance.png",
+  "metadata": null,
+  "name": "mar_a_la_vista",
+  "type": "PLANAR",
+  "properties": {
+    "left": 250,
+    "top": 0,
+    "width": 1500,
+    "height": 2000,
+    "isRotated": true,
+    "originalWidth": 2000,
+    "originalHeight": 2000
+  },
+  "resources": {
+    "originalImage": "mar_a_la_vista_original.png",
+    "croppedImage": "mar_a_la_vista_cropped.png",
+    "thumbnailImage": "mar_a_la_vista_thumbnail.png",
+    "luminanceImage": "mar_a_la_vista_luminance.png"
+  },
+  "created": 1779036029750,
+  "updated": 1779036029750
+}

@@ -1,0 +1,54 @@
+.video-container {
+    position: relative;
+    padding: 0px;
+    margin: auto;
+    overflow: hidden;
+}
+
+.video-container video {
+    position: absolute;
+    max-width: 160%;
+    top: 30%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    padding: 0px;
+}
+
+.video-container .iphone {
+    z-index: 100;
+}
+
+#tryit .inner {
+    flex-direction: row;
+    display: flex;
+    justify-content: space-around;
+}
+
+@media screen and (max-width: 480px) and (orientation: portrait) {
+    #tryit .inner {
+        flex-direction: column;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+}
+
+label.error {
+    color: #ef4138;
+    font-size: 85%;
+    margin-top: 10px;
+}
+
+#contactMsg {
+    display: block;
+    width: 100%;
+}
+
+.error {
+    color: #ef4138;
+    font-weight: 700;
+}
+
+.success {
+    color: #ef4138;
+}

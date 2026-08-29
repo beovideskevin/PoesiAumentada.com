@@ -1,0 +1,23 @@
+{
+  "imagePath": "image-targets/balconing_luminance.png",
+  "metadata": null,
+  "name": "balconing",
+  "type": "PLANAR",
+  "properties": {
+    "left": 250,
+    "top": 0,
+    "width": 1500,
+    "height": 2000,
+    "isRotated": true,
+    "originalWidth": 2000,
+    "originalHeight": 2000
+  },
+  "resources": {
+    "originalImage": "balconing_original.png",
+    "croppedImage": "balconing_cropped.png",
+    "thumbnailImage": "balconing_thumbnail.png",
+    "luminanceImage": "balconing_luminance.png"
+  },
+  "created": 1779035313807,
+  "updated": 1779035313807
+}

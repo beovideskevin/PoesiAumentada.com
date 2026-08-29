@@ -1,0 +1,23 @@
+{
+  "imagePath": "image-targets/la_jaula_luminance.png",
+  "metadata": null,
+  "name": "la_jaula",
+  "type": "PLANAR",
+  "properties": {
+    "left": 250,
+    "top": 0,
+    "width": 1500,
+    "height": 2000,
+    "isRotated": true,
+    "originalWidth": 2000,
+    "originalHeight": 2000
+  },
+  "resources": {
+    "originalImage": "la_jaula_original.png",
+    "croppedImage": "la_jaula_cropped.png",
+    "thumbnailImage": "la_jaula_thumbnail.png",
+    "luminanceImage": "la_jaula_luminance.png"
+  },
+  "created": 1779036004717,
+  "updated": 1779036004717
+}

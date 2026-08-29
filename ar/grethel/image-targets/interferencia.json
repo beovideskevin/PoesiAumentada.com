@@ -1,0 +1,23 @@
+{
+  "imagePath": "image-targets/interferencia_luminance.png",
+  "metadata": null,
+  "name": "interferencia",
+  "type": "PLANAR",
+  "properties": {
+    "left": 250,
+    "top": 0,
+    "width": 1500,
+    "height": 2000,
+    "isRotated": true,
+    "originalWidth": 2000,
+    "originalHeight": 2000
+  },
+  "resources": {
+    "originalImage": "interferencia_original.png",
+    "croppedImage": "interferencia_cropped.png",
+    "thumbnailImage": "interferencia_thumbnail.png",
+    "luminanceImage": "interferencia_luminance.png"
+  },
+  "created": 1779035969684,
+  "updated": 1779035969684
+}

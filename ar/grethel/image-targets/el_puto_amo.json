@@ -1,0 +1,23 @@
+{
+  "imagePath": "image-targets/el_puto_amo_luminance.png",
+  "metadata": null,
+  "name": "el_puto_amo",
+  "type": "PLANAR",
+  "properties": {
+    "left": 250,
+    "top": 0,
+    "width": 1500,
+    "height": 2000,
+    "isRotated": true,
+    "originalWidth": 2000,
+    "originalHeight": 2000
+  },
+  "resources": {
+    "originalImage": "el_puto_amo_original.png",
+    "croppedImage": "el_puto_amo_cropped.png",
+    "thumbnailImage": "el_puto_amo_thumbnail.png",
+    "luminanceImage": "el_puto_amo_luminance.png"
+  },
+  "created": 1779035942829,
+  "updated": 1779035942829
+}

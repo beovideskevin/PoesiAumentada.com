@@ -1,0 +1,23 @@
+{
+  "imagePath": "image-targets/maria_gracia_luminance.png",
+  "metadata": null,
+  "name": "maria_gracia",
+  "type": "PLANAR",
+  "properties": {
+    "left": 250,
+    "top": 0,
+    "width": 1500,
+    "height": 2000,
+    "isRotated": true,
+    "originalWidth": 2000,
+    "originalHeight": 2000
+  },
+  "resources": {
+    "originalImage": "maria_gracia_original.png",
+    "croppedImage": "maria_gracia_cropped.png",
+    "thumbnailImage": "maria_gracia_thumbnail.png",
+    "luminanceImage": "maria_gracia_luminance.png"
+  },
+  "created": 1779036069956,
+  "updated": 1779036069956
+}
