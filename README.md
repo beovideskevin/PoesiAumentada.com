@@ -10,7 +10,7 @@ Poesia Aumentada is a new way of enjoying poetry. Using augmented reality and ar
 
 ## To compile targets
 
-The script is located here 
+The script is located here:
 
 8th wall repos\8thwall-main\apps\image-target-cli
 
