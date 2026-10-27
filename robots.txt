@@ -1,0 +1,4 @@
+User-agent: *
+Disallow:
+Crawl-delay: 120
+Sitemap: https://www.poesiaumentada.com/sitemap.xml
