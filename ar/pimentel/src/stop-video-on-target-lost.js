@@ -24,7 +24,7 @@ const stopVideoOnTargetLost = {
                 return;
             }
 
-            videoTarget.setAttribute('material', 'src', thumb);
+            // videoTarget.setAttribute('material', 'src', thumb);
         };
 
         this.el.addEventListener('xrextraslost', this.onTargetLost);
