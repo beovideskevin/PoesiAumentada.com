@@ -1,58 +1,45 @@
-const targetVideoSoundComponent = {
+const stopVideoOnTargetLost = {
     schema: {
         video: { type: 'string' },
         thumb: { type: 'string' },
-        height: { type: 'number', default: 1.34 },
-        width: { type: 'number', default: 1 },
     },
     init() {
-        const v = document.querySelector(this.data.video);
+        const video = document.querySelector(this.data.video);
         const thumb = document.querySelector(this.data.thumb);
-        let tapped = false;
 
-        this.el.addEventListener('click', () => {
-            if (!v) {
+        if (!video || !thumb) {
+            console.error('Unable to initialize target video loss handling.');
+            return;
+        }
+
+        this.onTargetLost = () => {
+            video.pause();
+            video.currentTime = 0;
+
+            const videoTarget = this.el.querySelector(
+                'xrextras-target-video-sound',
+            );
+            if (!videoTarget) {
+                console.error('Unable to restore the target video thumbnail.');
                 return;
             }
 
-            if (tapped) {
-                v.pause();
-                v.currentTime = 0;
-                this.el.setAttribute('material', 'src', thumb);
-                tapped = false;
-                return;
-            }
-
-            this.el.setAttribute('material', 'src', v);
-            v.currentTime = 0;
-            v.play();
-            tapped = true;
-        });
-
-        const foundTarget = () => {
-            if (tapped && v) {
-                v.play();
-            }
+            videoTarget.setAttribute('material', 'src', thumb);
         };
 
-        const lostTarget = () => {
-            if (tapped && v) {
-                v.pause();
-                v.currentTime = 0;
-                this.el.setAttribute('material', 'src', thumb);
-                tapped = false;
-            }
-        };
-
-        this.el.parentNode.addEventListener('xrextrasfound', foundTarget);
-        this.el.parentNode.addEventListener('xrextraslost', lostTarget);
+        this.el.addEventListener('xrextraslost', this.onTargetLost);
+    },
+    remove() {
+        if (this.onTargetLost) {
+            this.el.removeEventListener('xrextraslost', this.onTargetLost);
+        }
     },
 };
 
-if (typeof window !== 'undefined') {
-    window.targetVideoSoundComponent = targetVideoSoundComponent;
+if (typeof AFRAME !== 'undefined') {
+    AFRAME.registerComponent('target-video-stop-on-lost', stopVideoOnTargetLost);
 }
 
 if (typeof module !== 'undefined') {
-    module.exports = targetVideoSoundComponent;
+    module.exports = stopVideoOnTargetLost;
 }
