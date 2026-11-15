@@ -4,6 +4,7 @@ const stopVideoOnTargetLost = {
         thumb: { type: 'string' },
     },
     init() {
+        const cameraEl = document.getElementById("camera");
         const video = document.querySelector(this.data.video);
         const thumb = document.querySelector(this.data.thumb);
 
@@ -15,15 +16,15 @@ const stopVideoOnTargetLost = {
         this.onTargetLost = () => {
             video.pause();
             video.currentTime = 0;
+            cameraEl.components.raycaster.refreshObjects();
 
-            const videoTarget = this.el.querySelector(
-                'xrextras-target-video-sound',
-            );
-            if (!videoTarget) {
-                console.error('Unable to restore the target video thumbnail.');
-                return;
-            }
-
+            // const videoTarget = this.el.querySelector(
+            //     'xrextras-target-video-sound',
+            // );
+            // if (!videoTarget) {
+            //     console.error('Unable to restore the target video thumbnail.');
+            //     return;
+            // }
             // videoTarget.setAttribute('material', 'src', thumb);
         };
 

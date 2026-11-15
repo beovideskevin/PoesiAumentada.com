@@ -20,10 +20,10 @@
             crossorigin="anonymous"
             data-preload-chunks="slam"
         ></script>
-        <script
+        <!-- <script
             src="https://cdn.jsdelivr.net/npm/@8thwall/landing-page@1/dist/landing-page.js"
             crossorigin="anonymous"
-        ></script>
+        ></script> -->
         <script
             src="https://cdn.jsdelivr.net/npm/@8thwall/xrextras@1/dist/xrextras.js"
             crossorigin="anonymous"
@@ -33,8 +33,6 @@
         <script src="bundle.js"></script>
         <script src="stop-video-on-target-lost.js"></script>
         <a-scene
-            xrextras-gesture-detector
-            landing-page
             xrextras-loading
             xrextras-runtime-error
             renderer="colorManagement:true"
@@ -88,7 +86,8 @@
             </a-assets>
 
             <a-camera
-                position="0 4 10"
+                id="camera"
+                position="0 0 0"
                 raycaster="objects: .cantap"
                 cursor="fuse: false; rayOrigin: mouse;"
             >
