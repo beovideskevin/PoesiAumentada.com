@@ -35,7 +35,6 @@
     </head>
     <body>
         <script src="bundle.js"></script>
-        <!-- <script src="stop-video-on-target-lost.js"></script> -->
         <a-scene
             xrextras-loading
             xrextras-runtime-error
@@ -136,17 +135,17 @@
                 id="pimentel-corto-1"
             >
                 <a-entity 
-                    id="pimentel-1-video-element"
+                    id="pimentel-corto-1-video-element"
                     geometry="primitive: plane; height: 1; width: 1;"
-                    material="shader: flat; src: #pimentel-1-video;" 
+                    material="shader: flat; src: #pimentel-corto-1-video;" 
                     visible="false"
                 >
                 </a-entity>
                 <a-entity
-                    id="pimentel-1-thumb-element"
+                    id="pimentel-corto-1-thumb-element"
                     class="cantap"
                     geometry="primitive: plane; height: 1; width: 1;"
-                    material="shader: flat; src: #pimentel-1-thumb; transparent: true"
+                    material="shader: flat; src: #pimentel-corto-1-thumb; transparent: true"
                 >
                 </a-entity>
             </xrextras-named-image-target>
@@ -156,37 +155,37 @@
                 id="pimentel-corto-2"
             >
                 <a-entity 
-                    id="pimentel-2-video-element"
+                    id="pimentel-corto-2-video-element"
                     geometry="primitive: plane; height: 1; width: 1;"
-                    material="shader: flat; src: #pimentel-2-video;" 
+                    material="shader: flat; src: #pimentel-corto-2-video;" 
                     visible="false"
                 >
                 </a-entity>
                 <a-entity
-                    id="pimentel-2-thumb-element"
+                    id="pimentel-corto-2-thumb-element"
                     class="cantap"
                     geometry="primitive: plane; height: 1; width: 1;"
-                    material="shader: flat; src: #pimentel-2-thumb; transparent: true"
+                    material="shader: flat; src: #pimentel-corto-2-thumb; transparent: true"
                 >
                 </a-entity>
             </xrextras-named-image-target>
 
             <xrextras-named-image-target
                 name="pimentel-corto-3"
-                target-video-stop-on-lost="video: #pimentel-corto-3-video; thumb: #pimentel-corto-3-thumb"
+                id="pimentel-corto-3"
             >
                 <a-entity 
-                    id="pimentel-3-video-element"
+                    id="pimentel-corto-3-video-element"
                     geometry="primitive: plane; height: 1; width: 1;"
-                    material="shader: flat; src: #pimentel-3-video;" 
+                    material="shader: flat; src: #pimentel-corto-3-video;" 
                     visible="false"
                 >
                 </a-entity>
                 <a-entity
-                    id="pimentel-3-thumb-element"
+                    id="pimentel-corto-3-thumb-element"
                     class="cantap"
                     geometry="primitive: plane; height: 1; width: 1;"
-                    material="shader: flat; src: #pimentel-3-thumb; transparent: true"
+                    material="shader: flat; src: #pimentel-corto-3-thumb; transparent: true"
                 >
                 </a-entity>
             </xrextras-named-image-target>
@@ -196,17 +195,17 @@
                 id="pimentel-corto-4"
             >
                 <a-entity 
-                    id="pimentel-4-video-element"
+                    id="pimentel-corto-4-video-element"
                     geometry="primitive: plane; height: 1; width: 1;"
-                    material="shader: flat; src: #pimentel-4-video;" 
+                    material="shader: flat; src: #pimentel-corto-4-video;" 
                     visible="false"
                 >
                 </a-entity>
                 <a-entity
-                    id="pimentel-4-thumb-element"
+                    id="pimentel-corto-4-thumb-element"
                     class="cantap"
                     geometry="primitive: plane; height: 1; width: 1;"
-                    material="shader: flat; src: #pimentel-4-thumb; transparent: true"
+                    material="shader: flat; src: #pimentel-corto-4-thumb; transparent: true"
                 >
                 </a-entity>
             </xrextras-named-image-target>
@@ -216,17 +215,17 @@
                 id="pimentel-corto-5"
             >
                 <a-entity 
-                    id="pimentel-5-video-element"
+                    id="pimentel-corto-5-video-element"
                     geometry="primitive: plane; height: 1; width: 1;"
-                    material="shader: flat; src: #pimentel-5-video;" 
+                    material="shader: flat; src: #pimentel-corto-5-video;" 
                     visible="false"
                 >
                 </a-entity>
                 <a-entity
-                    id="pimentel-5-thumb-element"
+                    id="pimentel-corto-5-thumb-element"
                     class="cantap"
                     geometry="primitive: plane; height: 1; width: 1;"
-                    material="shader: flat; src: #pimentel-5-thumb; transparent: true"
+                    material="shader: flat; src: #pimentel-corto-5-thumb; transparent: true"
                 >
                 </a-entity>
             </xrextras-named-image-target>
@@ -236,34 +235,34 @@
             document.addEventListener('DOMContentLoaded', () => {
                 const targets = [
                     {
-                        id: 'pimentel-1',
-                        video: 'pimentel-1-video',
-                        videoPlane: 'pimentel-1-video-element',
-                        thumbPlane: 'pimentel-1-thumb-element',
+                        id: 'pimentel-corto-1',
+                        video: 'pimentel-corto-1-video',
+                        videoPlane: 'pimentel-corto-1-video-element',
+                        thumbPlane: 'pimentel-corto-1-thumb-element',
                     },
                     {
-                        id: 'pimentel-2',
-                        video: 'pimentel-2-video',
-                        videoPlane: 'pimentel-2-video-element',
-                        thumbPlane: 'pimentel-2-thumb-element',
+                        id: 'pimentel-corto-2',
+                        video: 'pimentel-corto-2-video',
+                        videoPlane: 'pimentel-corto-2-video-element',
+                        thumbPlane: 'pimentel-corto-2-thumb-element',
                     },
                     {
-                        id: 'pimentel-3',
-                        video: 'pimentel-3-video',
-                        videoPlane: 'pimentel-3-video-element',
-                        thumbPlane: 'pimentel-3-thumb-element',
+                        id: 'pimentel-corto-3',
+                        video: 'pimentel-corto-3-video',
+                        videoPlane: 'pimentel-corto-3-video-element',
+                        thumbPlane: 'pimentel-corto-3-thumb-element',
                     },
                     {
-                        id: 'pimentel-4',
-                        video: 'pimentel-4-video',
-                        videoPlane: 'pimentel-4-video-element',
-                        thumbPlane: 'pimentel-4-thumb-element',
+                        id: 'pimentel-corto-4',
+                        video: 'pimentel-corto-4-video',
+                        videoPlane: 'pimentel-corto-4-video-element',
+                        thumbPlane: 'pimentel-corto-4-thumb-element',
                     },
                     {
-                        id: 'pimentel-5',
-                        video: 'pimentel-5-video',
-                        videoPlane: 'pimentel-5-video-element',
-                        thumbPlane: 'pimentel-5-thumb-element',
+                        id: 'pimentel-corto-5',
+                        video: 'pimentel-corto-5-video',
+                        videoPlane: 'pimentel-corto-5-video-element',
+                        thumbPlane: 'pimentel-corto-5-thumb-element',
                     },
                 ];
 
