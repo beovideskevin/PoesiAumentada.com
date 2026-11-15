@@ -1,0 +1,237 @@
+<!doctype html>
+<html>
+    <head>
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0, user-scalable=no"
+        />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+
+        <link rel="icon" type="image/png" href="/assets/images/favicon.png" />
+        <title>Poesia Aumentada | Poemas de Grethel Delgado</title>
+        <script
+            crossorigin="anonymous"
+            src="./external/scripts/8frame-1.5.0.min.js"
+        ></script>
+
+        <script
+            src="https://cdn.jsdelivr.net/npm/@8thwall/engine-binary@1/dist/xr.js"
+            async
+            crossorigin="anonymous"
+            data-preload-chunks="slam"
+        ></script>
+        <!-- <script
+            src="https://cdn.jsdelivr.net/npm/@8thwall/landing-page@1/dist/landing-page.js"
+            crossorigin="anonymous"
+        ></script> -->
+        <!-- <script
+            src="https://cdn.jsdelivr.net/npm/@8thwall/xrextras@1/dist/xrextras.js"
+            crossorigin="anonymous"
+        ></script> -->
+        <script
+            src="./external/xrextras/xrextras.js"
+            crossorigin="anonymous"
+        ></script>
+    </head>
+    <body>
+        <script src="bundle.js"></script>
+        <a-scene
+            xrextras-loading
+            xrextras-runtime-error
+            renderer="colorManagement:true"
+            xrweb="disableWorldTracking: true"
+        >
+            <a-assets>
+                <img
+                    id="el_puto_amo-thumb"
+                    src="assets/images/thumbs/el_puto_amo.png"
+                />
+                <video
+                    id="el_puto_amo-video"
+                    crossorigin="anonymous"
+                    playsinline
+                    webkit-playsinline
+                    loading="eager"
+                    preload="auto"
+                    src="assets/videos/el_puto_amo_sm.mp4"
+                ></video>
+
+                <img
+                    id="interferencia-thumb"
+                    src="assets/images/thumbs/interferencia.png"
+                />
+                <video
+                    id="interferencia-video"
+                    crossorigin="anonymous"
+                    playsinline
+                    webkit-playsinline
+                    loading="eager"
+                    preload="auto"
+                    src="assets/videos/interferencia_sm.mp4"
+                ></video>
+
+                <img
+                    id="maria_gracia-thumb"
+                    src="assets/images/thumbs/maria_gracia.png"
+                />
+                <video
+                    id="maria_gracia-video"
+                    crossorigin="anonymous"
+                    playsinline
+                    webkit-playsinline
+                    loading="eager"
+                    preload="auto"
+                    src="assets/videos/maria_gracia_sm.mp4"
+                ></video>
+            </a-assets>
+
+            <a-camera
+                id="camera"
+                position="0 0 0"
+                raycaster="objects: .cantap"
+                cursor="fuse: false; rayOrigin: mouse;"
+            >
+            </a-camera>
+
+            <a-light
+                type="directional"
+                intensity="0.5"
+                position="1 1 1"
+            ></a-light>
+
+            <a-light type="ambient" intensity="1"></a-light>
+
+            <xrextras-named-image-target name="el_puto_amo" id="el_puto_amo">
+                <a-entity 
+                    id="el_puto_amo-video-element"
+                    geometry="primitive: plane; height: 1; width: 1;"
+                    material="shader: flat; src: #el_puto_amo-video;" 
+                    visible="false"
+                >
+                </a-entity>
+                <a-entity
+                    id="el_puto_amo-thumb-element"
+                    class="cantap"
+                    geometry="primitive: plane; height: 1; width: 1;"
+                    material="shader: flat; src: #el_puto_amo-thumb; transparent: true"
+                >
+                </a-entity>
+            </xrextras-named-image-target>
+
+            <xrextras-named-image-target name="interferencia" id="interferencia">
+                <a-entity 
+                    id="interferencia-video-element"
+                    geometry="primitive: plane; height: 1; width: 1;"
+                    material="shader: flat; src: #interferencia-video;" 
+                    visible="false"
+                >
+                </a-entity>
+                <a-entity
+                    id="interferencia-thumb-element"
+                    class="cantap"
+                    geometry="primitive: plane; height: 1; width: 1;"
+                    material="shader: flat; src: #interferencia-thumb; transparent: true"
+                >
+                </a-entity>
+            </xrextras-named-image-target>
+
+            <xrextras-named-image-target name="maria_gracia" id="maria_gracia">
+                <a-entity 
+                    id="maria_gracia-video-element"
+                    geometry="primitive: plane; height: 1; width: 1;"
+                    material="shader: flat; src: #maria_gracia-video;" 
+                    visible="false"
+                >
+                </a-entity>
+                <a-entity
+                    id="maria_gracia-thumb-element"
+                    class="cantap"
+                    geometry="primitive: plane; height: 1; width: 1;"
+                    material="shader: flat; src: #maria_gracia-thumb; transparent: true"
+                >
+                </a-entity>
+            </xrextras-named-image-target>
+        </a-scene>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', () => {
+                const targets = [
+                    {
+                        id: 'el_puto_amo',
+                        video: 'el_puto_amo-video',
+                        videoPlane: 'el_puto_amo-video-element',
+                        thumbPlane: 'el_puto_amo-thumb-element',
+                    },
+                    {
+                        id: 'interferencia',
+                        video: 'interferencia-video',
+                        videoPlane: 'interferencia-video-element',
+                        thumbPlane: 'interferencia-thumb-element',
+                    },
+                    {
+                        id: 'maria_gracia',
+                        video: 'maria_gracia-video',
+                        videoPlane: 'maria_gracia-video-element',
+                        thumbPlane: 'maria_gracia-thumb-element',
+                    }
+                ];
+
+                const cameraEl = document.getElementById("camera");
+
+                targets.forEach(({ id, video: videoId, videoPlane: videoPlaneId, thumbPlane: thumbPlaneId, name: qName, quote: qQuote }) => {
+                    const target = document.getElementById(id);
+                    const videoPlane = document.getElementById(videoPlaneId);
+                    const thumbPlane = document.getElementById(thumbPlaneId);
+                    const video = document.getElementById(videoId);
+
+                    if (!target || !video || !videoPlane || !thumbPlane) {
+                        console.error(`Missing video target elements for ${id}`);
+                        return;
+                    }
+
+                    const toggleEl = ({thumb, video}) => {
+                        thumbPlane.setAttribute('visible', thumb);
+                        videoPlane.setAttribute('visible', video);
+
+                        thumbPlane.classList.toggle('cantap', thumb);
+                        cameraEl.components.raycaster.refreshObjects();
+                    }
+
+                    const handleClick = () => {
+                        video.play().then(() => {
+                            toggleEl({thumb: false, video: true});
+                            const shaderMaterial = videoPlane.components.material.material;
+                            if (shaderMaterial && shaderMaterial.uniforms && shaderMaterial.uniforms.myTexture) {
+                                shaderMaterial.uniforms.myTexture.value.needsUpdate = true;
+                            }
+                        }).catch((error) => {
+                            if (revealVideoOnPlaying === revealVideo) {
+                                video.removeEventListener('playing', revealVideo);
+                            }
+                            console.error('Unable to play video:', error);
+                        });
+                    }
+
+                    thumbPlane.addEventListener('click', handleClick);
+
+                    target.addEventListener('xrextrasfound', () => {
+                        toggleEl({thumb: true, video: false});
+                    });
+
+                    target.addEventListener('xrextraslost', () => {
+                        toggleEl({thumb: false, video: false});
+                        if (!video.paused) {
+                            video.pause();
+                            video.currentTime = 0;
+                        }
+                    });
+
+                    video.addEventListener('ended', () => {
+                        toggleEl({thumb: true, video: false});
+                        video.currentTime = 0;
+                    });
+                });
+            });
+        </script>
+    </body>
+</html>

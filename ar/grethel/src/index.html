@@ -24,8 +24,12 @@
             src="https://cdn.jsdelivr.net/npm/@8thwall/landing-page@1/dist/landing-page.js"
             crossorigin="anonymous"
         ></script> -->
-        <script
+        <!-- <script
             src="https://cdn.jsdelivr.net/npm/@8thwall/xrextras@1/dist/xrextras.js"
+            crossorigin="anonymous"
+        ></script> -->
+        <script
+            src="./external/xrextras/xrextras.js"
             crossorigin="anonymous"
         ></script>
     </head>
@@ -45,30 +49,11 @@
                 <video
                     id="balconing-video"
                     crossorigin="anonymous"
-                    loop="true"
+                    playsinline
+                    webkit-playsinline
+                    loading="eager"
+                    preload="auto"
                     src="assets/videos/balconing_sm.mp4"
-                ></video>
-
-                <img
-                    id="el_puto_amo-thumb"
-                    src="assets/images/thumbs/el_puto_amo.png"
-                />
-                <video
-                    id="el_puto_amo-video"
-                    crossorigin="anonymous"
-                    loop="true"
-                    src="assets/videos/el_puto_amo_sm.mp4"
-                ></video>
-
-                <img
-                    id="interferencia-thumb"
-                    src="assets/images/thumbs/interferencia.png"
-                />
-                <video
-                    id="interferencia-video"
-                    crossorigin="anonymous"
-                    loop="true"
-                    src="assets/videos/interferencia_sm.mp4"
                 ></video>
 
                 <img
@@ -78,7 +63,10 @@
                 <video
                     id="la_jaula-video"
                     crossorigin="anonymous"
-                    loop="true"
+                    playsinline
+                    webkit-playsinline
+                    loading="eager"
+                    preload="auto"
                     src="assets/videos/la_jaula_sm.mp4"
                 ></video>
 
@@ -89,23 +77,16 @@
                 <video
                     id="mar_a_la_vista-video"
                     crossorigin="anonymous"
-                    loop="true"
+                    playsinline
+                    webkit-playsinline
+                    loading="eager"
+                    preload="auto"
                     src="assets/videos/mar_a_la_vista_sm.mp4"
-                ></video>
-
-                <img
-                    id="maria_gracia-thumb"
-                    src="assets/images/thumbs/maria_gracia.png"
-                />
-                <video
-                    id="maria_gracia-video"
-                    crossorigin="anonymous"
-                    loop="true"
-                    src="assets/videos/maria_gracia_sm.mp4"
                 ></video>
             </a-assets>
 
             <a-camera
+                id="camera"
                 position="0 0 0"
                 raycaster="objects: .cantap"
                 cursor="fuse: false; rayOrigin: mouse;"
@@ -121,103 +102,137 @@
             <a-light type="ambient" intensity="1"></a-light>
 
             <!-- Note: "name:" must be set to the name of the image target -->
-            <xrextras-named-image-target name="balconing">
-                <xrextras-target-video-sound
-                    video="#balconing-video"
-                    thumb="#balconing-thumb"
-                    height="1.34"
-                    width="1"
-                ></xrextras-target-video-sound>
+            <xrextras-named-image-target name="balconing" id="balconing">
+                <a-entity 
+                    id="balconing-video-element"
+                    geometry="primitive: plane; height: 1; width: 1;"
+                    material="shader: flat; src: #balconing-video;" 
+                    visible="false"
+                >
+                </a-entity>
+                <a-entity
+                    id="balconing-thumb-element"
+                    class="cantap"
+                    geometry="primitive: plane; height: 1; width: 1;"
+                    material="shader: flat; src: #balconing-thumb; transparent: true"
+                >
+                </a-entity>
             </xrextras-named-image-target>
 
-            <xrextras-named-image-target name="el_puto_amo">
-                <xrextras-target-video-sound
-                    video="#el_puto_amo-video"
-                    thumb="#el_puto_amo-thumb"
-                    height="1.34"
-                    width="1"
-                ></xrextras-target-video-sound>
+            <xrextras-named-image-target name="la_jaula" id="la_jaula">
+                <a-entity 
+                    id="la_jaula-video-element"
+                    geometry="primitive: plane; height: 1; width: 1;"
+                    material="shader: flat; src: #la_jaula-video;" 
+                    visible="false"
+                >
+                </a-entity>
+                <a-entity
+                    id="la_jaula-thumb-element"
+                    class="cantap"
+                    geometry="primitive: plane; height: 1; width: 1;"
+                    material="shader: flat; src: #la_jaula-thumb; transparent: true"
+                >
+                </a-entity>
             </xrextras-named-image-target>
 
-            <xrextras-named-image-target name="interferencia">
-                <xrextras-target-video-sound
-                    video="#interferencia-video"
-                    thumb="#interferencia-thumb"
-                    height="1.34"
-                    width="1"
-                ></xrextras-target-video-sound>
-            </xrextras-named-image-target>
-
-            <xrextras-named-image-target name="la_jaula">
-                <xrextras-target-video-sound
-                    video="#la_jaula-video"
-                    thumb="#la_jaula-thumb"
-                    height="1.34"
-                    width="1"
-                ></xrextras-target-video-sound>
-            </xrextras-named-image-target>
-
-            <xrextras-named-image-target name="mar_a_la_vista">
-                <xrextras-target-video-sound
-                    video="#mar_a_la_vista-video"
-                    thumb="#mar_a_la_vista-thumb"
-                    height="1.34"
-                    width="1"
-                ></xrextras-target-video-sound>
-            </xrextras-named-image-target>
-
-            <xrextras-named-image-target name="maria_gracia">
-                <xrextras-target-video-sound
-                    video="#maria_gracia-video"
-                    thumb="#maria_gracia-thumb"
-                    height="1.34"
-                    width="1"
-                ></xrextras-target-video-sound>
+            <xrextras-named-image-target name="mar_a_la_vista" id="mar_a_la_vista">
+                <a-entity 
+                    id="mar_a_la_vista-video-element"
+                    geometry="primitive: plane; height: 1; width: 1;"
+                    material="shader: flat; src: #mar_a_la_vista-video;" 
+                    visible="false"
+                >
+                </a-entity>
+                <a-entity
+                    id="mar_a_la_vista-thumb-element"
+                    class="cantap"
+                    geometry="primitive: plane; height: 1; width: 1;"
+                    material="shader: flat; src: #mar_a_la_vista-thumb; transparent: true"
+                >
+                </a-entity>
             </xrextras-named-image-target>
         </a-scene>
 
         <script>
-            const targetVideoSoundComponent = {
-                schema: {
-                    video,
-                    thumb,
-                    height,
-                    width,
-                },
-                init() {
-                    const v = document.querySelector(this.data.video);
-                    let tapped = false;
+            document.addEventListener('DOMContentLoaded', () => {
+                const targets = [
+                    {
+                        id: 'balconing',
+                        video: 'balconing-video',
+                        videoPlane: 'balconing-video-element',
+                        thumbPlane: 'balconing-thumb-element',
+                    },
+                    {
+                        id: 'la_jaula',
+                        video: 'la_jaula-video',
+                        videoPlane: 'la_jaula-video-element',
+                        thumbPlane: 'la_jaula-thumb-element',
+                    },
+                    {
+                        id: 'mar_a_la_vista',
+                        video: 'mar_a_la_vista-video',
+                        videoPlane: 'mar_a_la_vista-video-element',
+                        thumbPlane: 'mar_a_la_vista-thumb-element',
+                    }
+                ];
 
-                    this.el.addEventListener('click', () => {
-                        if (!tapped) {
-                            this.el.setAttribute('material', 'src', v);
-                            v.play();
-                            tapped = true;
+                const cameraEl = document.getElementById("camera");
+
+                targets.forEach(({ id, video: videoId, videoPlane: videoPlaneId, thumbPlane: thumbPlaneId, name: qName, quote: qQuote }) => {
+                    const target = document.getElementById(id);
+                    const videoPlane = document.getElementById(videoPlaneId);
+                    const thumbPlane = document.getElementById(thumbPlaneId);
+                    const video = document.getElementById(videoId);
+
+                    if (!target || !video || !videoPlane || !thumbPlane) {
+                        console.error(`Missing video target elements for ${id}`);
+                        return;
+                    }
+
+                    const toggleEl = ({thumb, video}) => {
+                        thumbPlane.setAttribute('visible', thumb);
+                        videoPlane.setAttribute('visible', video);
+
+                        thumbPlane.classList.toggle('cantap', thumb);
+                        cameraEl.components.raycaster.refreshObjects();
+                    }
+
+                    const handleClick = () => {
+                        video.play().then(() => {
+                            toggleEl({thumb: false, video: true});
+                            const shaderMaterial = videoPlane.components.material.material;
+                            if (shaderMaterial && shaderMaterial.uniforms && shaderMaterial.uniforms.myTexture) {
+                                shaderMaterial.uniforms.myTexture.value.needsUpdate = true;
+                            }
+                        }).catch((error) => {
+                            if (revealVideoOnPlaying === revealVideo) {
+                                video.removeEventListener('playing', revealVideo);
+                            }
+                            console.error('Unable to play video:', error);
+                        });
+                    }
+
+                    thumbPlane.addEventListener('click', handleClick);
+
+                    target.addEventListener('xrextrasfound', () => {
+                        toggleEl({thumb: true, video: false});
+                    });
+
+                    target.addEventListener('xrextraslost', () => {
+                        toggleEl({thumb: false, video: false});
+                        if (!video.paused) {
+                            video.pause();
+                            video.currentTime = 0;
                         }
                     });
 
-                    const foundTarget = () => {
-                        if (tapped) {
-                            v.play();
-                        }
-                    };
-
-                    const lostTarget = () => {
-                        if (tapped) {
-                            v.pause();
-                        }
-                    };
-
-                    this.el.parentNode.addEventListener(
-                        'xrextrasfound',
-                        foundTarget,
-                    );
-                    this.el.parentNode.addEventListener(
-                        'xrextraslost',
-                        lostTarget,
-                    );
-                },
-            };
+                    video.addEventListener('ended', () => {
+                        toggleEl({thumb: true, video: false});
+                        video.currentTime = 0;
+                    });
+                });
+            });
         </script>
     </body>
 </html>

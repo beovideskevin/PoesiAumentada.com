@@ -24,14 +24,18 @@
             src="https://cdn.jsdelivr.net/npm/@8thwall/landing-page@1/dist/landing-page.js"
             crossorigin="anonymous"
         ></script> -->
-        <script
+        <!-- <script
             src="https://cdn.jsdelivr.net/npm/@8thwall/xrextras@1/dist/xrextras.js"
+            crossorigin="anonymous"
+        ></script> -->
+        <script
+            src="./external/xrextras/xrextras.js"
             crossorigin="anonymous"
         ></script>
     </head>
     <body>
         <script src="bundle.js"></script>
-        <script src="stop-video-on-target-lost.js"></script>
+        <!-- <script src="stop-video-on-target-lost.js"></script> -->
         <a-scene
             xrextras-loading
             xrextras-runtime-error
@@ -47,7 +51,10 @@
                 <video
                     id="pimentel-corto-6-video"
                     crossorigin="anonymous"
-                    loop="true"
+                    playsinline
+                    webkit-playsinline
+                    loading="eager"
+                    preload="auto"
                     src="assets/videos/pimentel-corto-6-sm.mp4#t=0.001"
                 ></video>
 
@@ -58,7 +65,10 @@
                 <video
                     id="pimentel-corto-7-video"
                     crossorigin="anonymous"
-                    loop="true"
+                    playsinline
+                    webkit-playsinline
+                    loading="eager"
+                    preload="auto"
                     src="assets/videos/pimentel-corto-7-sm.mp4#t=0.001"
                 ></video>
 
@@ -69,7 +79,10 @@
                 <video
                     id="pimentel-corto-8-video"
                     crossorigin="anonymous"
-                    loop="true"
+                    playsinline
+                    webkit-playsinline
+                    loading="eager"
+                    preload="auto"
                     src="assets/videos/pimentel-corto-8-sm.mp4#t=0.001"
                 ></video>
 
@@ -80,7 +93,10 @@
                 <video
                     id="pimentel-corto-9-video"
                     crossorigin="anonymous"
-                    loop="true"
+                    playsinline
+                    webkit-playsinline
+                    loading="eager"
+                    preload="auto"
                     src="assets/videos/pimentel-corto-9-sm.mp4#t=0.001"
                 ></video>
             </a-assets>
@@ -103,51 +119,170 @@
             <!-- poemas cortos -->
             <xrextras-named-image-target
                 name="pimentel-corto-6"
-                target-video-stop-on-lost="video: #pimentel-corto-6-video; thumb: #pimentel-corto-6-thumb"
+                id="pimentel-corto-6"
             >
-                <xrextras-target-video-sound
-                    video="#pimentel-corto-6-video"
-                    thumb="#pimentel-corto-6-thumb"
-                    height="1.34"
-                    width="1"
-                ></xrextras-target-video-sound>
+                <a-entity 
+                    id="pimentel-6-video-element"
+                    geometry="primitive: plane; height: 1; width: 1;"
+                    material="shader: flat; src: #pimentel-6-video;" 
+                    visible="false"
+                >
+                </a-entity>
+                <a-entity
+                    id="pimentel-6-thumb-element"
+                    class="cantap"
+                    geometry="primitive: plane; height: 1; width: 1;"
+                    material="shader: flat; src: #pimentel-6-thumb; transparent: true"
+                >
+                </a-entity>
             </xrextras-named-image-target>
 
             <xrextras-named-image-target
                 name="pimentel-corto-7"
-                target-video-stop-on-lost="video: #pimentel-corto-7-video; thumb: #pimentel-corto-7-thumb"
+                id="pimentel-corto-7"
             >
-                <xrextras-target-video-sound
-                    video="#pimentel-corto-7-video"
-                    thumb="#pimentel-corto-7-thumb"
-                    height="1.34"
-                    width="1"
-                ></xrextras-target-video-sound>
+                <a-entity 
+                    id="pimentel-7-video-element"
+                    geometry="primitive: plane; height: 1; width: 1;"
+                    material="shader: flat; src: #pimentel-7-video;" 
+                    visible="false"
+                >
+                </a-entity>
+                <a-entity
+                    id="pimentel-7-thumb-element"
+                    class="cantap"
+                    geometry="primitive: plane; height: 1; width: 1;"
+                    material="shader: flat; src: #pimentel-7-thumb; transparent: true"
+                >
+                </a-entity>
             </xrextras-named-image-target>
 
             <xrextras-named-image-target
                 name="pimentel-corto-8"
-                target-video-stop-on-lost="video: #pimentel-corto-8-video; thumb: #pimentel-corto-8-thumb"
+                id="pimentel-corto-8"
             >
-                <xrextras-target-video-sound
-                    video="#pimentel-corto-8-video"
-                    thumb="#pimentel-corto-8-thumb"
-                    height="1.34"
-                    width="1"
-                ></xrextras-target-video-sound>
+                <a-entity 
+                    id="pimentel-8-video-element"
+                    geometry="primitive: plane; height: 1; width: 1;"
+                    material="shader: flat; src: #pimentel-8-video;" 
+                    visible="false"
+                >
+                </a-entity>
+                <a-entity
+                    id="pimentel-8-thumb-element"
+                    class="cantap"
+                    geometry="primitive: plane; height: 1; width: 1;"
+                    material="shader: flat; src: #pimentel-8-thumb; transparent: true"
+                >
+                </a-entity>
             </xrextras-named-image-target>
 
             <xrextras-named-image-target
                 name="pimentel-corto-9"
-                target-video-stop-on-lost="video: #pimentel-corto-9-video; thumb: #pimentel-corto-9-thumb"
+                id="pimentel-corto-9"
             >
-                <xrextras-target-video-sound
-                    video="#pimentel-corto-9-video"
-                    thumb="#pimentel-corto-9-thumb"
-                    height="1.34"
-                    width="1"
-                ></xrextras-target-video-sound>
+                <a-entity 
+                    id="pimentel-9-video-element"
+                    geometry="primitive: plane; height: 1; width: 1;"
+                    material="shader: flat; src: #pimentel-9-video;" 
+                    visible="false"
+                >
+                </a-entity>
+                <a-entity
+                    id="pimentel-9-thumb-element"
+                    class="cantap"
+                    geometry="primitive: plane; height: 1; width: 1;"
+                    material="shader: flat; src: #pimentel-9-thumb; transparent: true"
+                >
+                </a-entity>
             </xrextras-named-image-target>
         </a-scene>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', () => {
+                const targets = [
+                    {
+                        id: 'pimentel-6',
+                        video: 'pimentel-6-video',
+                        videoPlane: 'pimentel-6-video-element',
+                        thumbPlane: 'pimentel-6-thumb-element',
+                    },
+                    {
+                        id: 'pimentel-7',
+                        video: 'pimentel-7-video',
+                        videoPlane: 'pimentel-7-video-element',
+                        thumbPlane: 'pimentel-7-thumb-element',
+                    },
+                    {
+                        id: 'pimentel-8',
+                        video: 'pimentel-8-video',
+                        videoPlane: 'pimentel-8-video-element',
+                        thumbPlane: 'pimentel-8-thumb-element',
+                    },
+                    {
+                        id: 'pimentel-9',
+                        video: 'pimentel-9-video',
+                        videoPlane: 'pimentel-9-video-element',
+                        thumbPlane: 'pimentel-9-thumb-element',
+                    },
+                ];
+
+                const cameraEl = document.getElementById("camera");
+
+                targets.forEach(({ id, video: videoId, videoPlane: videoPlaneId, thumbPlane: thumbPlaneId, name: qName, quote: qQuote }) => {
+                    const target = document.getElementById(id);
+                    const videoPlane = document.getElementById(videoPlaneId);
+                    const thumbPlane = document.getElementById(thumbPlaneId);
+                    const video = document.getElementById(videoId);
+
+                    if (!target || !video || !videoPlane || !thumbPlane) {
+                        console.error(`Missing video target elements for ${id}`);
+                        return;
+                    }
+
+                    const toggleEl = ({thumb, video}) => {
+                        thumbPlane.setAttribute('visible', thumb);
+                        videoPlane.setAttribute('visible', video);
+
+                        thumbPlane.classList.toggle('cantap', thumb);
+                        cameraEl.components.raycaster.refreshObjects();
+                    }
+
+                    const handleClick = () => {
+                        video.play().then(() => {
+                            toggleEl({thumb: false, video: true});
+                            const shaderMaterial = videoPlane.components.material.material;
+                            if (shaderMaterial && shaderMaterial.uniforms && shaderMaterial.uniforms.myTexture) {
+                                shaderMaterial.uniforms.myTexture.value.needsUpdate = true;
+                            }
+                        }).catch((error) => {
+                            if (revealVideoOnPlaying === revealVideo) {
+                                video.removeEventListener('playing', revealVideo);
+                            }
+                            console.error('Unable to play video:', error);
+                        });
+                    }
+
+                    thumbPlane.addEventListener('click', handleClick);
+
+                    target.addEventListener('xrextrasfound', () => {
+                        toggleEl({thumb: true, video: false});
+                    });
+
+                    target.addEventListener('xrextraslost', () => {
+                        toggleEl({thumb: false, video: false});
+                        if (!video.paused) {
+                            video.pause();
+                            video.currentTime = 0;
+                        }
+                    });
+
+                    video.addEventListener('ended', () => {
+                        toggleEl({thumb: true, video: false});
+                        video.currentTime = 0;
+                    });
+                });
+            });
+        </script>
     </body>
 </html>
